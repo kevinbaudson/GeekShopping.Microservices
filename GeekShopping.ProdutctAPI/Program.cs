@@ -1,4 +1,6 @@
 
+using AutoMapper;
+using GeekShopping.ProdutctAPI.Config;
 using GeekShopping.ProdutctAPI.Model.Context;
 using Microsoft.EntityFrameworkCore;
 
@@ -21,6 +23,11 @@ namespace GeekShopping.ProdutctAPI
                     new MySqlServerVersion(new Version(8, 0, 31))
                 )
             );
+
+            IMapper mapper = MappingConfig.RegisterMaps().CreateMapper();
+            builder.Services.AddSingleton(mapper);
+            
+
 
             // Add services to the container.
 

@@ -1,9 +1,9 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace GeekShopping.ProdutctAPI.Data.ValueObjects
+namespace GeekShopping.ProdutctAPI.Contracts.DTOs
 {
-    public class ProductVO
+    public class ProductDTO
     {
         public long Id { get; set; }
         public string Name { get; set; } = string.Empty;
