@@ -1,4 +1,4 @@
-﻿using GeekShopping.ProdutctAPI.Data.ValueObjects;
+﻿using GeekShopping.ProdutctAPI.Contracts.DTOs;
 
 namespace GeekShopping.ProdutctAPI.Repository
 {
@@ -6,8 +6,8 @@ namespace GeekShopping.ProdutctAPI.Repository
     {
         Task<IEnumerable<ProductDTO>> FindAll();
         Task<ProductDTO> FindById(long id);
-        Task<ProductDTO> Create(ProductDTO vo);
-        Task<ProductDTO> Update(ProductDTO vo);
+        Task<ProductDTO> Create(ProductDTO dto);
+        Task<ProductDTO> Update(ProductDTO dto);
         Task<bool> Delete(long id);
     }
 }
