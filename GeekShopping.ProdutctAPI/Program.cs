@@ -26,7 +26,9 @@ namespace GeekShopping.ProdutctAPI
 
             IMapper mapper = MappingConfig.RegisterMaps().CreateMapper();
             builder.Services.AddSingleton(mapper);
-            
+
+            // Repository
+            builder.Services.AddScoped<Repository.IProductRepository, Repository.ProductRepository>();
 
 
             // Add services to the container.
