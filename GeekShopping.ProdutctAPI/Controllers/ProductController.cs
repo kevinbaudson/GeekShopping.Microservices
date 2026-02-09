@@ -41,7 +41,7 @@ namespace GeekShopping.ProdutctAPI.Controllers
         }
 
         [HttpPut]
-        public async Task<IActionResult> Update(ProductDTO dto)
+        public async Task<IActionResult> Update([FromBody]ProductDTO dto)
         {
             if (dto == null) return BadRequest();
             var product = await _repository.Update(dto);
