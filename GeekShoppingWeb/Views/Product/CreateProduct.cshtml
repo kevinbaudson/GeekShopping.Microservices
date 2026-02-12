@@ -1,0 +1,60 @@
+﻿@model GeekShoppingWeb.Models.ProductModel
+
+@{
+    ViewData["Title"] = "Novo Produto";
+}
+
+<h2 class="mb-4">Cadastrar Produto</h2>
+
+<form asp-action="CreateProduct" method="post">
+
+    @Html.AntiForgeryToken()
+
+    <div class="mb-3">
+        <label class="form-label">Nome</label>
+        <input asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Preço</label>
+        <input asp-for="Price"
+               type="number"
+               step="0.01"
+               class="form-control" />
+        <span asp-validation-for="Price" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Descrição</label>
+        <textarea asp-for="Description" class="form-control"></textarea>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Categoria</label>
+        <input asp-for="CategoryName" class="form-control" />
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Imagem (URL)</label>
+        <input asp-for="ImageUrl" class="form-control" />
+    </div>
+
+    <div class="d-flex gap-2">
+
+        <button type="submit" class="btn btn-success">
+            <i class="fa fa-save"></i>
+            Salvar
+        </button>
+
+        <a asp-action="ProductIndex" class="btn btn-secondary">
+            Voltar
+        </a>
+
+    </div>
+
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

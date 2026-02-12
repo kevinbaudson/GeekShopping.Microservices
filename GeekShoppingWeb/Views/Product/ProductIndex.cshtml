@@ -1,0 +1,73 @@
+﻿@model IEnumerable<ProductModel>
+
+@{
+    ViewData["Title"] = "Produtos";
+}
+
+<h2 class="mb-4">Produtos</h2>
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+
+    <span></span>
+
+    <a asp-controller="Product"
+       asp-action="CreateProduct"
+       class="btn btn-success">
+
+        <i class="fa fa-plus"></i>
+        Novo Produto
+    </a>
+
+</div>
+
+<table class="table table-hover align-middle">
+
+    <thead class="table-light">
+        <tr>
+            <th>Nome</th>
+            <th>Preço</th>
+            <th style="width:140px">Ações</th>
+        </tr>
+    </thead>
+
+    <tbody>
+
+        @if (!Model.Any())
+        {
+            <tr>
+                <td colspan="3" class="text-center text-muted">
+                    Nenhum produto encontrado.
+                </td>
+            </tr>
+        }
+        else
+        {
+            @foreach (var product in Model)
+            {
+                <tr>
+                    <td>@product.Name</td>
+
+                    <td>R$ @product.Price</td>
+
+                    <td>
+                        <a asp-action="EditProduct"
+                           asp-route-id="@product.Id"
+                           class="btn btn-sm btn-outline-primary">
+                            Editar
+                        </a>
+
+                        <a asp-action="DeleteProduct"
+                           asp-route-id="@product.Id"
+                           onclick="return confirm('Deseja excluir este produto?')"
+                           class="btn btn-sm btn-outline-danger">
+                            Excluir
+                        </a>
+                    </td>
+                </tr>
+            }
+        }
+
+    </tbody>
+
+</table>
+

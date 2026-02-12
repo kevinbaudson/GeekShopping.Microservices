@@ -1,8 +1,47 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿@model IEnumerable<GeekShoppingWeb.Models.ProductModel>
+
+@{
+    ViewData["Title"] = "Produtos";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<h3 class="fw-bold mb-4">Produtos</h3>
+
+<div class="row g-4">
+
+    @foreach (var product in Model)
+    {
+        <div class="col-md-4">
+
+            <div class="card h-100">
+
+                <img src="@product.ImageUrl ?? " https: //via.placeholder.com/400x250""
+                     class="card-img-top"
+                     style="height:200px;object-fit:cover">
+
+                <div class="card-body">
+
+                    <h5 class="fw-bold">@product.Name</h5>
+
+                    <p class="text-muted">
+                        @product.Description
+                    </p>
+
+                    <div class="d-flex justify-content-between align-items-center">
+
+                        <span class="fw-bold text-success">
+                            R$ @product.Price
+                        </span>
+
+                        <button class="btn btn-sm btn-primary">
+                            <i class="fa-solid fa-cart-plus"></i>
+                        </button>
+
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    }
+
 </div>
